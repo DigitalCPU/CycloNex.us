@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CycloNex - The Future of AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: #222;
+            padding: 15px;
+            text-align: left;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul li {
+            position: relative;
+            padding: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .image-slider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        .slider-container {
+            width: 80%;
+            overflow: hidden;
+            position: relative;
+        }
+        .slider-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(0);
+        }
+        .slide {
+            width: 75vw;
+            height: 75vh;
+            min-width: 75vw;
+            background: gray;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .left {
+            left: 10px;
+        }
+        .right {
+            right: 10px;
+        }
+    .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #333;
+            list-style: none;
+            padding: 0;
+            top: 35px;
+            left: 0;
+            width: 150px;
+        }
+        .dropdown-menu li {
+            padding: 10px;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <style>
+        .side-panel {
+            z-index: 2000;
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #333;
+            transition: left 0.3s ease;
+            padding-top: 50px;
+        }
+        .side-panel ul {
+            list-style: none;
+            padding: 0;
+        }
+        .side-panel ul li {
+            padding: 10px;
+        }
+        .side-panel ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">CycloNex</div>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">Cyclosphere Services ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="services/quazar.html">Quazar</a></li>
+                        <li><a href="services/lifelike.html">LifeLike</a></li>
+                        <li><a href="services/novasearch.html">NovaSearch</a></li>
+                        <li><a href="services/firenado.html">Firenado</a></li>
+                        <li><a href="services/argentix.html">Argentix</a></li>
+                        <li><a href="services/sensory.html">Sensory</a></li>
+                        <li><a href="services/censorme.html">CensorMe</a></li>
+                        <li><a href="services/halovox.html">HaloVox</a></li>
+                        <li><a href="services/votronix.html">Votronix</a></li>
+                    </ul>
+                </li>
+                <li><a href="hardware/prosthetics.html">Prosthetics</a></li>
+                <li><a href="hardware/androids.html">Androids</a></li>
+                <li><a href="hardware/aviation.html">Aviation</a></li>
+                <li><a href="#" class="menu-btn" onclick="toggleSidePanel()">☰</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main style="margin-top: 80px;">
+        <section class="hero">
+            <h1>Welcome to CycloNex</h1>
+            <p style="margin-top: 20px;">The future of AI innovation starts here. Explore AI-powered services, cybersecurity, and cutting-edge technology.</p>
+        </section>
+        <section class="image-slider">
+            <button class="slider-btn left" onclick="moveSlider(-1)">&#9664;</button>
+            <div class="slider-container" onmouseover="pauseSlider()" onmouseout="resumeSlider()">
+                <div class="slider-content" id="slider">
+                    <div class="slide">Image 1</div>
+                    <div class="slide">Image 2</div>
+                    <div class="slide">Image 3</div>
+                    <div class="slide">Image 4</div>
+                    <div class="slide">Image 5</div>
+                    <div class="slide">Image 6</div>
+                    <div class="slide">Image 7</div>
+                    <div class="slide">Image 8</div>
+                    <div class="slide">Image 9</div>
+                    <div class="slide">Image 10</div>
+                    <div class="slide">Image 11</div>
+                    <div class="slide">Image 12</div>
+                </div>
+            </div>
+            <button class="slider-btn right" onclick="moveSlider(1)">&#9654;</button>
+        </section>
+        <aside class="side-panel" id="sidePanel">
+        <span class="close-btn" onclick="toggleSidePanel()">&times;</span>
+        <ul>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="search.html">Search</a></li>
+            <li><a href="select-language.html">Select Language</a></li>
+            <li><a href="select-region.html">Select Region</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="donate.html">Donate</a></li>
+        </ul>
+    </aside>
+</main>
+    
+    <script>
+        let slider = document.getElementById("slider");
+        let isPaused = false;
+        let position = 0;
+        const slideWidth = document.querySelector(".slide").clientWidth + 10;
+        
+        function moveSlider(direction) {
+            position += direction * slideWidth;
+            if (position < -((slider.children.length - 1) * slideWidth)) {
+                position = 0;
+            } else if (position > 0) {
+                position = -((slider.children.length - 1) * slideWidth);
+            }
+            slider.style.transform = `translateX(${position}px)`;
+        }
+        
+        function autoScroll() {
+            if (!isPaused) {
+                moveSlider(-1);
+            }
+        }
+        
+        function pauseSlider() {
+            isPaused = true;
+        }
+        
+        function resumeSlider() {
+            isPaused = false;
+        }
+        
+        setInterval(autoScroll, 2000);
+            function toggleSidePanel() {
+            let panel = document.getElementById("sidePanel");
+            if (panel.style.left === "0px") {
+                panel.style.left = "-250px";
+            } else {
+                panel.style.left = "0px";
+            }
+        }
+    </script>
+    
+    <footer>
+        <p>&copy; 2025 CycloNex. All rights reserved.</p>
+    </footer>
+</body>
+</html>
 
